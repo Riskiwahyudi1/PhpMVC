@@ -1,4 +1,8 @@
 <div class="container mt-3">
+    <div class="row">
+        <?php Flasher::flash(); ?>
+    </div>
+
     <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Tambah Data Mahasiswa
     </button>
@@ -8,7 +12,10 @@
             <?php 
             foreach($data['mhs'] as $mhs) : ?>
             <li class="list-group-item d-flex justify-content-between align-items-end "><?= $mhs['Nama'];?>
-                <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['Nim']; ?>" class="badge text-bg-primary ">Detail</a>
+                <div class="countainer">
+                    <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['Nim']; ?>" class="badge text-bg-primary ">Detail</a>
+                    <a href="<?= BASEURL; ?>/mahasiswa/delete/<?= $mhs['Nim']; ?>" class="badge text-bg-danger ">Delete</a>
+                </div>
             </li>
             <?php  endforeach; ?>
         </ul>
