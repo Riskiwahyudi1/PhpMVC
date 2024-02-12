@@ -32,11 +32,11 @@ class Mahasiswa_model {
 
     
     }
-    public function hapusDataMahasiswa($id){
+    public function hapusDataMahasiswa($nim){
         $query = 'DELETE FROM ' . $this->table . ' WHERE Nim=:id';
-        
+
         $this->db->query($query);
-        $this->db->bind('id', $id);
+        $this->db->bind('id', $nim);
         
         $this->db->execute();
 
