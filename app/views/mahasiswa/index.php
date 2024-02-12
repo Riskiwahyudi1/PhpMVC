@@ -14,7 +14,7 @@
             <li class="list-group-item d-flex justify-content-between align-items-end "><?= $mhs['Nama'];?>
                 <div class="countainer">
                     <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['Nim']; ?>" class="badge text-bg-primary ">Detail</a>
-                    <a href="<?= BASEURL; ?>/mahasiswa/delete/<?= $mhs['Nim']; ?>" class="badge text-bg-danger ">Delete</a>
+                    <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['Nim']; ?>" class="badge text-bg-danger " onclick="return confirm('Yakin ingin menghapus data mahasiswa?');">Delete</a>
                 </div>
             </li>
             <?php  endforeach; ?>
