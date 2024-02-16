@@ -52,7 +52,18 @@ class Mahasiswa_model {
         $this->db->bind('jurusan', $data['jurusan']);
         
         $this->db->execute();
-
+        
         return $this->db->rowCount();
     }
+    public function cariDaftarMahasiswa() {
+        
+        $keyword = $_POST['keyword'];
+        
+        $query = 'SELECT * FROM mahasiswa WHERE Nama LIKE :keyword';
+        
+        $this->db->query($query);
+        $this->db->bind(':keyword', "%$keyword%"); 
+        return $this->db->resultSet();
+    }
+    
 }

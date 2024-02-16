@@ -2,10 +2,18 @@
     <div class="row">
         <?php Flasher::flash(); ?>
     </div>
-
-    <button type="button" class="btn btn-success mb-3 " id="tampilModalTambah" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Tambah Data Mahasiswa
-    </button>
+    <div class="container">
+        <button type="button" class="btn btn-success mb-3 " id="tampilModalTambah" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+            Tambah Data Mahasiswa
+        </button>
+        <form action="<?= BASEURL; ?>/mahasiswa/cari" method="post">
+        <div class="mb-3 col-lg-4">
+                <input type="text" class="form-control" placeholder="Cari Mahasiswa" name="keyword" id="cari">
+                <button class="btn btn-dark" type="submit" id="button-addon2">cari</button>
+            </div>
+        </form>
+    </div>
     <div class="row">
         <h3>Daftar Mahasiswa</h3>
         <ul class="list-group">
@@ -13,9 +21,13 @@
             foreach($data['mhs'] as $mhs) : ?>
             <li class="list-group-item d-flex justify-content-between align-items-end "><?= $mhs['Nama'];?>
                 <div class="countainer">
-                    <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['Nim']; ?>" class="badge text-bg-primary ">Detail</a>
-                    <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['Nim']; ?>" class="badge text-bg-warning tampilModalUbah" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<?= $mhs['Nim']; ?>">Ubah</a>
-                    <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['Nim']; ?>" class="badge text-bg-danger " onclick="return confirm('Yakin ingin menghapus data mahasiswa?');">Hapus</a>
+                    <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['Nim']; ?>"
+                        class="badge text-bg-primary ">Detail</a>
+                    <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['Nim']; ?>"
+                        class="badge text-bg-warning tampilModalUbah" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal" data-id="<?= $mhs['Nim']; ?>">Ubah</a>
+                    <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['Nim']; ?>" class="badge text-bg-danger "
+                        onclick="return confirm('Yakin ingin menghapus data mahasiswa?');">Hapus</a>
                 </div>
             </li>
             <?php  endforeach; ?>
